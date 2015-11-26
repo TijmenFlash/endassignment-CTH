@@ -1,0 +1,55 @@
+body {
+    margin:50px;
+    background-color: black;
+}
+
+#infoDiv{
+    position: relative;
+    text-align: center;
+    background-color: rgb(100,100,100);
+    width: 100%;
+    height: 100px;
+    margin-bottom: 50px;
+}
+
+#image{
+    width: 50vh;
+    height: 50vh;
+}
+
+#imageDiv {
+    text-align: center;
+    position: relative;
+}
+
+#nextButton {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 50%;
+    width: 50%;
+}
+
+#prevButton {
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    height: 50%;
+    width: 50%;
+}
+
+#buttonDiv {
+    margin: 10px;
+    text-align: center;
+}
+
+.btnLarge {
+    width:10vw;
+    height:10vh;
+}
+.btnSmall {
+    width:12vw;
+    height:5vh;
+    margin-right: 5px;
+    margin-left: 5px;
+}
