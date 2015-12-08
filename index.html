@@ -5,6 +5,7 @@
     <title>maps tryyy</title>
     <link rel="stylesheet" href="style.css" />  
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />    <!-- importing stylesheet bootstrap-->
   </head>  
 
   <body>  
@@ -12,14 +13,18 @@
     <div id="worldmap"></div>         <!-- creating div for worldmap -->
     <div class="country-name"></div>        <!-- creating div for the country name -->
 
-    <script src="//cdnjs.cloudflare.com/ajax/libs/chroma-js/0.5.9/chroma.min.js"></script>    <!-- importing chroma library -->
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>                       <!-- importing jquerry library -->
     <script src="http://d3js.org/topojson.v1.min.js"></script>                                <!-- importing topojson snippet -->
     <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>                 <!-- importing leaflet library (v0.7.3)-->
+    <!-- color scale -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/1.1.1/chroma.min.js"></script>      <!-- importing chroma library -->
+    <!-- button interaction -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.js"></script>      <!-- importing bootbox library  -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>     <!-- importing bootstrap library -->
     
     <script src="L.TopoJSON.js"></script>        <!-- Insert snippet in order to add topoJSON directly as a tile layer -->
     <script src="functions.js"></script>
+    <script language="javascript" type="text/javascript" src="country-select.js"></script>
 
   </body>
 </html>

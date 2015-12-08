@@ -16,7 +16,7 @@ body{
 }
 
 #worldmap{
-  background:white;
+  background:rgb(181,208,208);
 }
 
 .country-name{         /* setting the style of the name of the country to be shown */
