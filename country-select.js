@@ -10,23 +10,47 @@ countrySelected = function() {
                 label: "I want to go there",
                 className: "btn-go-there",
                 callback: function() {
-                    inMenu = 0;
+                    //check if the selectedCountry is already in haveBeen
+                    var index = haveBeen.indexOf(selectedCountry);
+                    if (index > -1) {
+                        haveBeen.splice(index, 1);
+                    }
+                    var index2 = wantToGo.indexOf(selectedCountry);
+                    if (index > -1) {
+                        wantToGo.splice(index, 1);
+                    }
+                    //add selectedCountry to array want to go
+                    wantToGo.push(selectedCountry);
+                    //testing purposes
+                    console.log("Want to go to: "+wantToGo);
                 }
             },
             BeenThere: {
                 label: "Been there done that",
                 className: "btn-been-there",
                 callback: function() {
-                    inMenu = 0;
+                    //check if the selectedCountry is already in haveBeen
+                    var index = wantToGo.indexOf(selectedCountry);
+                    if (index > -1) {
+                        wantToGo.splice(index, 1);
+                    }
+                    var index2 = haveBeen.indexOf(selectedCountry);
+                    if (index > -1) {
+                        haveBeen.splice(index, 1);
+                    }
+                    //add selectedCountry to array have been
+                    haveBeen.push(selectedCountry);
+                    //testing purposes
+                    console.log("have been in: "+haveBeen);
                 }
             },
             moreInfo: {
                 label: "Click me for more info!",
                 className: "btn-primary",
-                    callback: function() {
-                        inMenu = 0;
-                    }
+                callback: function() {
+                    console.log(selectedCountry);
                 }
             }
-        });
-    };
+        }
+    });
+};

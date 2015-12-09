@@ -2,8 +2,10 @@ console.log("functions.js loaded");
 
 'use strict';
 
-var selectedCountry = 0;
-var inMenu = 0;
+var selectedCountry = 0;                
+var inMenu = 0;                         //boolean for being in a menu
+var haveBeen = [];
+var wantToGo = [];
 
 var map = L.map('worldmap',{            //initialize worldmap
     maxZoom:10,                         //set min and max zoom
@@ -13,7 +15,6 @@ var map = L.map('worldmap',{            //initialize worldmap
 
 var topoLayer = new L.TopoJSON(),
 $countryName = $('.country-name'),
-
 
 //make a color scale with chroma library
 colorScale = chroma
@@ -31,16 +32,19 @@ function addTopoData(topoData){
     topoLayer.eachLayer(handleLayer);
 }
   
+  
+console.log(topoLayer.eachLayer);
+
 function handleLayer(layer){
     var randomValue = Math.random(),
     fillColor = colorScale(randomValue).hex();
-        
+    
     layer.setStyle({
         fillColor : fillColor,
-        fillOpacity: .2,
+        fillOpacity: .3,
         color:'#555',
         weight:1,
-        opacity:.2
+        opacity:.3
     });
     layer.on({
         mouseover: enterLayer,
@@ -48,23 +52,34 @@ function handleLayer(layer){
     });
 }
 
+
+window.setInterval(function(){
+    topoLayer.eachLayer(function (layer) { 
+        if(wantToGo.indexOf(layer.feature.id) > -1) {
+            layer.setStyle({
+                fillColor :'red'
+            });
+        }
+        if(haveBeen.indexOf(layer.feature.id) > -1) {
+            layer.setStyle({
+                fillColor :'blue'
+            });
+        }
+        //make sure just one menu opens at a time
+        inMenu = 0;
+    });
+}, 200);
+
+
 function enterLayer(){
     var countryName = this.feature.properties.SOVEREIGNT;
 
-    $(this).on( "click", function() {
+    $(this).click( function() {
         if(inMenu===0){
-            inMenu=1;
-            countrySelected();
+            inMenu=1;                //bugfix: prevent multiple dialog windows to open
             selectedCountry = this.feature.id;
-        
-            //testing purposes
-            console.log(this);
-            
-            this.setStyle({
-                fillColor:"red"
-            })
+            countrySelected();
         }
-    
     });
     
     $countryName.text(countryName).show();
@@ -75,6 +90,7 @@ function enterLayer(){
         opacity: 1
     });
 }
+
 
 function leaveLayer(){
     $countryName.hide();
