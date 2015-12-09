@@ -49,6 +49,7 @@ countrySelected = function() {
                 className: "btn-primary",
                 callback: function() {
                     console.log(selectedCountry);
+                    window.open("https://en.wikipedia.org/wiki/"+selectedCountryName);
                 }
             }
         }

@@ -2,7 +2,8 @@ console.log("functions.js loaded");
 
 'use strict';
 
-var selectedCountry = 0;                
+var selectedCountry = 0;          
+var selectedCountryName = "";
 var inMenu = 0;                         //boolean for being in a menu
 var haveBeen = [];
 var wantToGo = [];
@@ -78,6 +79,7 @@ function enterLayer(){
         if(inMenu===0){
             inMenu=1;                //bugfix: prevent multiple dialog windows to open
             selectedCountry = this.feature.id;
+            selectedCountryName = this.feature.properties.ADMIN;
             countrySelected();
         }
     });
