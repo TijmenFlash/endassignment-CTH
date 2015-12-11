@@ -7,6 +7,7 @@ var selectedCountryName = "";
 var inMenu = 0;                         //boolean for being in a menu
 var haveBeen = [];
 var wantToGo = [];
+var haveBeenCities = []; 
 
 var map = L.map('worldmap',{            //initialize worldmap
     maxZoom:10,                         //set min and max zoom
@@ -19,7 +20,7 @@ $countryName = $('.country-name'),
 
 //make a color scale with chroma library
 colorScale = chroma
-    .scale(['#D5E3FF', '#003171'])
+    .scale(['#FFFFFF', '#606060'])
     .domain([0,1]);
   
 //set initial value of map
@@ -33,9 +34,6 @@ function addTopoData(topoData){
     topoLayer.eachLayer(handleLayer);
 }
   
-  
-console.log(topoLayer.eachLayer);
-
 function handleLayer(layer){
     var randomValue = Math.random(),
     fillColor = colorScale(randomValue).hex();
@@ -79,7 +77,7 @@ function enterLayer(){
         if(inMenu===0){
             inMenu=1;                //bugfix: prevent multiple dialog windows to open
             selectedCountry = this.feature.id;
-            selectedCountryName = this.feature.properties.ADMIN;
+            selectedCountryName = this.feature.properties.NAME;
             countrySelected();
         }
     });
@@ -111,3 +109,18 @@ L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
     noWrap: true
 }).addTo(map);
 
+L.Control.geocoder().addTo(map);
+
+//add geo locator
+geocoder = new L.Control.Geocoder.Nominatim();
+
+
+function updatePins(){
+    geocoder.geocode(haveBeenCities[haveBeenCities.length-1], function(results) {    
+        latLng = new L.LatLng(results[0].center.lat, results[0].center.lng);
+        L.marker(latLng).addTo(map)
+            .bindPopup(haveBeenCities[haveBeenCities.length-1])
+            //.openPopup();
+    });
+        
+}

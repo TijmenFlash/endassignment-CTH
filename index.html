@@ -6,12 +6,43 @@
     <link rel="stylesheet" href="style.css" />  
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />    <!-- importing stylesheet bootstrap-->
+    <link rel="stylesheet" href="data/Control.Geocoder.css" />
+    <link red="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"/>
   </head>  
 
   <body>  
-    
     <div id="worldmap"></div>         <!-- creating div for worldmap -->
     <div class="country-name"></div>        <!-- creating div for the country name -->
+    <div class="form-content" style="display:none;">
+        <form class="form" action="processingscript.php" method="post">
+            <p id="when">When did you go?</p>
+            <label for="from">From</label>
+            <input type="text" id="from" name="from">
+            <label for="to">to</label>
+            <input type="text" id="to" name="to"> <br><br>
+            <p id="where">Where have you been?</p>
+            <input id="SelectCountry" type="text">
+            <br><br>
+            <p id="rate">Give your trip a rating</p> 
+            <fieldset id="rating">
+            <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+            <input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
+            <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+            <input type="radio" id="star3half" name="rating" value="3 and a half" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
+            <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+            <input type="radio" id="star2half" name="rating" value="2 and a half" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
+            <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+            <input type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
+            <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+            <input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
+            </fieldset>
+            <div id="recommendation">
+            <p>Would you like to write a recommendation?</p>
+            <textarea rows="8" cols="50"></textarea>
+            </div>
+        </form>
+    </div>
+        
 
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>                       <!-- importing jquerry library -->
     <script src="http://d3js.org/topojson.v1.min.js"></script>                                <!-- importing topojson snippet -->
@@ -21,9 +52,14 @@
     <!-- button interaction -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.js"></script>      <!-- importing bootbox library  -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>     <!-- importing bootstrap library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
+    
+    <script src="data/Control.Geocoder.js"></script>
     
     <script src="L.TopoJSON.js"></script>        <!-- Insert snippet in order to add topoJSON directly as a tile layer -->
     <script src="functions.js"></script>
+    <script src="form.js"></script>
+    <script src="form_functions.js"></script>
     <script language="javascript" type="text/javascript" src="country-select.js"></script>
 
   </body>

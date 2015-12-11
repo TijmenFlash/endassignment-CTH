@@ -26,7 +26,7 @@ countrySelected = function() {
                 }
             },
             BeenThere: {
-                label: "Been there done that",
+                label: "I've been there",
                 className: "btn-been-there",
                 callback: function() {
                     //check if the selectedCountry is already in haveBeen
@@ -40,16 +40,18 @@ countrySelected = function() {
                     }
                     //add selectedCountry to array have been
                     haveBeen.push(selectedCountry);
+                    formSelected();
                     //testing purposes
                     console.log("have been in: "+haveBeen);
                 }
             },
             moreInfo: {
-                label: "Click me for more info!",
+                label: "More info",
                 className: "btn-primary",
                 callback: function() {
-                    console.log(selectedCountry);
+                    //console.log(selectedCountry);
                     window.open("https://en.wikipedia.org/wiki/"+selectedCountryName);
+                    console.log(topoLayer._layers);
                 }
             }
         }
