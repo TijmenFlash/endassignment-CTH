@@ -37,38 +37,54 @@
             <i class="fa fa-bars"></i>
             Menu
         </div>
+    
+        <img style="float:right;margin-right:50px;margin-top:30px;" height=80px src=http://www.travelbuddies.com.ua/i/tb_logo_400px.png>
+        <div id="centerDiv">
+            <h2> Social Network </h2>
         
-        <img style="float:right;margin-right:15px;margin-top:4px" height=35px src=http://www.travelbuddies.com.ua/i/tb_logo_400px.png>
-        
-        <div id="worldmap"></div>         <!-- creating div for worldmap -->
-        <div class="country-name"></div>        <!-- creating div for the country name -->
-    </div>
-    <div class="form-content" style="display:none;">
-        <form class="form" method="post">
-            <p id="when">When did you go?</p>
-            <label for="from">From</label>
-            <input type="text" id="from" name="from">
-            <label for="to">to</label>
-            <input type="text" id="to" name="to"> <br><br>
-            <p id="where">Where have you been?</p>
-            <input id="SelectCountry" type="text">
+            <hr style="height:3px;border:none;color:#333;background-color:#333;" />
             <br><br>
-            <p id="rate">Give your trip a rating</p> 
             
-            <input name="a" value="1" type="radio">1
-            <input name="a" value="2" type="radio">2
-            <input name="a" value="3" type="radio">3
-            <input name="a" value="4" type="radio">4
-            <input name="a" value="5" type="radio">5
-            
-            <br><br>
-            <div id="recommendation">
-            <p>Aditional marks or recommendations</p>
-            <textarea rows="8" cols="50"></textarea>
-            </div>
-        </form>
-    </div>
+                <table style="float:right; margin-right:50px;" name=newsfeed border=3px>
+            <tr>
+                <td>Jack</td>
+                <td>has achieved XXX</td>
+            </tr>
+            <tr>
+                <td>Tracy</td>
+                <td>has achieved YYY</td>
+            </tr>
+            <tr> 
+                <td>Mike</td>
+                <td>has achieved ZZZ</td>
+            </tr>
+        </table>
         
+            <table name=achievementlist border=1px>
+                <tr>
+                    <td> Jouw Troffee 1</td>
+                    <td> <input type="checkbox" name="Achievement1" value="Gehaald"></td>
+                </tr>
+                <tr>
+                    <td> Jouw Troffee 2</td>
+                    <td> <input type="checkbox" name="Achievement2" value="Gehaald"></td>
+                </tr>
+                <tr>
+                    <td> Jouw Troffee 3</td>
+                    <td> <input type="checkbox" name="Achievement3" value="Gehaald"></td>
+                </tr> 
+            </table>
+            <br><br>
+            <form name="dagboek" action="" method="post">
+                <textarea rows="8" cols="100">Vandaag heb ik beleefd..</textarea>
+                <input type=submit>
+            </form>
+        </div>
+        
+        
+        
+    </div>
+    
 
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>                       <!-- importing jquerry library -->
     <script src="http://d3js.org/topojson.v1.min.js"></script>                                <!-- importing topojson snippet -->

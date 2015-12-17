@@ -15,6 +15,10 @@ body,html,#worldmap{
 body{
   color:#333;
   font-family:sans-serif;
+  /* for the menu*/
+  overflow: hidden;
+  position: relative;
+
 }
 
 #worldmap{
@@ -23,7 +27,7 @@ body{
 
 .country-name{         /* setting the style of the name of the country to be shown */
   position: absolute;
-  top:4em;
+  top:8em;
   right:1em;
   z-index:6;
   background:rgba(0,0,0,.75);
@@ -34,43 +38,86 @@ body{
 }
 
 fieldset, label { margin: 0; padding: 0; }
-h1 { 
-    font-size: 1.5em; 
-    margin: 10px; 
+
+
+/* FOR THE MENu */
+/* Initial menu */
+.menu {
+  background: #000000;
+  left: -285px;  /* start off behind the scenes */
+  height: 100%;
+  position: fixed;
+  width: 285px;
 }
 
-/****** Style Star Rating Widget *****/
-#rating‬ { 
-    border: none;
-    float: left;
+/* Basic styling */
+
+.jumbotron {
+  height: 100%;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
 }
-#rating > input { 
-    display: none; 
-    
+
+.menu ul {
+  border-top: 1px solid #636366;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu li {
+  border-bottom: 1px solid #636366;
+  font-family: 'Open Sans', sans-serif;
+  line-height: 45px;
+  padding-bottom: 3px;
+  padding-left: 20px;
+  padding-top: 3px;
+}
+
+.menu a {
+  color: #fff;
+  font-size: 15px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.icon-close {
+  cursor: pointer;
+  padding-left: 10px;
+  padding-top: 10px;
+}
+
+.icon-menu {
+  color: #000;
+  cursor: pointer;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 24px;
+  margin-bottom: 25px;
+  padding-left: 13px;
+  margin-top: 25px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.icon-menu i {
+  margin-right: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/* profile / social / contact tab */   
+table{
+    font-family: verdana, arial;
+    width: 200px;
+    height: 50px;
+    background: lightblue;
+    margin-left: 50px;
+}
+
+form{
+
+    margin: auto;
 } 
-#rating > label:before { 
-    margin: 5px;
-    font-size: 2.5em;
-    font-family: FontAwesome;
-    display: inline-block;
-    content: "\f005";
+#centerDiv{
+    text-align: center;
 }
-#rating > .half:before { 
-    content: "\f089";
-    position: absolute;
-}
-#rating > label { 
-    color: #ddd;
-    float: right; 
-}
-/***** CSS Magic to Highlight Stars on Hover *****/
-#rating > input:checked ~ label, /* show gold star when clicked */
-#rating:not(:checked) > label:hover, /* hover current star */
-#rating:not(:checked) > label:hover ~ label { color: #FFC900‬; } /* hover previous stars in list */
-#rating > input:checked + label:hover, /* hover current star when changing rating */
-#rating > input:checked ~ label:hover,
-#rating > label:hover ~ input:checked ~ label, /* lighten current selection */
-#rating > input:checked ~ label:hover ~ label { color: orange; }
-
-
-    
